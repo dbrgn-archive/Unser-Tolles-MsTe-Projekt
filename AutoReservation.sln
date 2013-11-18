@@ -1,8 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2012
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B4E40A29-915E-4BD6-A2F2-D0FD3FC57542}"
 	ProjectSection(SolutionItems) = preProject
+		AutoReservation.Database Create Script.sql = AutoReservation.Database Create Script.sql
 		AutoReservation.vsmdi = AutoReservation.vsmdi
 		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
 	EndProjectSection
@@ -23,10 +26,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoReservation.Dal", "Auto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoReservation.Ui.Testing", "AutoReservation.Ui.Testing\AutoReservation.Ui.Testing.csproj", "{3E6673F7-8428-48D0-90A7-198043B18171}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{297E9A53-09FA-4DC9-9FCC-34415609B0DD}"
+EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = AutoReservation.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -157,8 +159,26 @@ Global
 		{3E6673F7-8428-48D0-90A7-198043B18171}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3E6673F7-8428-48D0-90A7-198043B18171}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3E6673F7-8428-48D0-90A7-198043B18171}.Release|x86.ActiveCfg = Release|Any CPU
+		{297E9A53-09FA-4DC9-9FCC-34415609B0DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{297E9A53-09FA-4DC9-9FCC-34415609B0DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{297E9A53-09FA-4DC9-9FCC-34415609B0DD}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{297E9A53-09FA-4DC9-9FCC-34415609B0DD}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{297E9A53-09FA-4DC9-9FCC-34415609B0DD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{297E9A53-09FA-4DC9-9FCC-34415609B0DD}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{297E9A53-09FA-4DC9-9FCC-34415609B0DD}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{297E9A53-09FA-4DC9-9FCC-34415609B0DD}.Default|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{297E9A53-09FA-4DC9-9FCC-34415609B0DD}.Default|Mixed Platforms.Build.0 = Debug|Any CPU
+		{297E9A53-09FA-4DC9-9FCC-34415609B0DD}.Default|x86.ActiveCfg = Debug|Any CPU
+		{297E9A53-09FA-4DC9-9FCC-34415609B0DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{297E9A53-09FA-4DC9-9FCC-34415609B0DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{297E9A53-09FA-4DC9-9FCC-34415609B0DD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{297E9A53-09FA-4DC9-9FCC-34415609B0DD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{297E9A53-09FA-4DC9-9FCC-34415609B0DD}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = AutoReservation.vsmdi
 	EndGlobalSection
 EndGlobal
