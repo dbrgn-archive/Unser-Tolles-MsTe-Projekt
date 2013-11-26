@@ -95,7 +95,7 @@
       <Name>AutoReservation.BusinessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\AutoReservation.Common\AutoReservation.Common.csproj">
-      <Project>{22972439-3FFF-41D2-B5AE-6C06ABC66EB4}</Project>
+      <Project>{22972439-3fff-41d2-b5ae-6c06abc66eb4}</Project>
       <Name>AutoReservation.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\AutoReservation.Dal\AutoReservation.Dal.csproj">
@@ -103,11 +103,11 @@
       <Name>AutoReservation.Dal</Name>
     </ProjectReference>
     <ProjectReference Include="..\AutoReservation.Service.Wcf.Host\AutoReservation.Service.Wcf.Host.csproj">
-      <Project>{4E17D89D-F65A-4F89-BCEE-28171FA1A01C}</Project>
+      <Project>{4e17d89d-f65a-4f89-bcee-28171fa1a01c}</Project>
       <Name>AutoReservation.Service.Wcf.Host</Name>
     </ProjectReference>
     <ProjectReference Include="..\AutoReservation.Service.Wcf\AutoReservation.Service.Wcf.csproj">
-      <Project>{73F6E950-15A9-460D-993B-DFE469A9E286}</Project>
+      <Project>{73f6e950-15a9-460d-993b-dfe469a9e286}</Project>
       <Name>AutoReservation.Service.Wcf</Name>
     </ProjectReference>
   </ItemGroup>
