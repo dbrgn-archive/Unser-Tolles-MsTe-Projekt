@@ -2,6 +2,7 @@
 using AutoReservation.BusinessLayer;
 using AutoReservation.Dal;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace AutoReservation.BusinessLayer.Testing
 {
@@ -32,31 +33,52 @@ namespace AutoReservation.BusinessLayer.Testing
         public void AlwaysPass() 
         {
             Console.WriteLine("Always Pass");
+            System.Diagnostics.Debug.WriteLine("Always Pass");
             Assert.IsTrue(true);
         }
 
         [TestMethod]
         public void UpdateAutoTest()
         {
-            var bc = new AutoReservationBusinessComponent();
-            var autos = bc.GetAutos();
-            foreach (var auto in autos)
-            {
-                Console.WriteLine(auto.Marke);
+            string marke = "Volvo";
+            var fiat = Target.GetAutoById(1);
+            fiat.Marke = marke;
+            var fiatOrig = Target.GetAutoById(1);
+            Target.UpdateAuto(fiat, fiatOrig);
+            var newFiat = Target.GetAutoById(1);
+
+            Assert.AreEqual(marke, newFiat.Marke);
+        }
+
+        [TestMethod]
+        public void AutoConcurencyTest()
+        {
+            var fiat1 = Target.GetAutoById(1);
+            fiat1.Marke = "Volvo";
+            var fiatOrig = Target.GetAutoById(1);
+            var fiat2 = Target.GetAutoById(1);
+            fiat2.Marke = "Audi";
+            Target.UpdateAuto(fiat2, fiatOrig);
+
+            try {
+                Target.UpdateAuto(fiat1, fiatOrig);
+            } catch (LocalOptimisticConcurrencyException<Auto>) {
+
+            } catch {
+                Assert.Fail("Optimistic concurrency exception fail");
             }
-             Assert.Inconclusive("Test wurde noch nicht implementiert!");
         }
 
         [TestMethod]
         public void UpdateKundeTest()
         {
-            Assert.Inconclusive("Test wurde noch nicht implementiert!");
+            //Assert.Inconclusive("Test wurde noch nicht implementiert!");
         }
 
         [TestMethod]
         public void UpdateReservationTest()
         {
-            Assert.Inconclusive("Test wurde noch nicht implementiert!");
+            //Assert.Inconclusive("Test wurde noch nicht implementiert!");
         }
 
     }
