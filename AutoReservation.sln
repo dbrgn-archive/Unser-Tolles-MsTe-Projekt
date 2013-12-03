@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoReservation.Ui.Testing"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUDTest", "CRUDTest\CRUDTest.csproj", "{9E7B8AB2-6B9C-4AA3-B8BB-52079857441D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoReservation.BusinessLayer.Testing", "AutoReservation.BusinessLayer.Testing\AutoReservation.BusinessLayer.Testing.csproj", "{DA2D0E65-20D5-40B4-9A3F-E9187835309F}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = AutoReservation.vsmdi
@@ -175,6 +177,21 @@ Global
 		{9E7B8AB2-6B9C-4AA3-B8BB-52079857441D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{9E7B8AB2-6B9C-4AA3-B8BB-52079857441D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{9E7B8AB2-6B9C-4AA3-B8BB-52079857441D}.Release|x86.ActiveCfg = Release|Any CPU
+		{DA2D0E65-20D5-40B4-9A3F-E9187835309F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA2D0E65-20D5-40B4-9A3F-E9187835309F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA2D0E65-20D5-40B4-9A3F-E9187835309F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DA2D0E65-20D5-40B4-9A3F-E9187835309F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DA2D0E65-20D5-40B4-9A3F-E9187835309F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DA2D0E65-20D5-40B4-9A3F-E9187835309F}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA2D0E65-20D5-40B4-9A3F-E9187835309F}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{DA2D0E65-20D5-40B4-9A3F-E9187835309F}.Default|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DA2D0E65-20D5-40B4-9A3F-E9187835309F}.Default|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DA2D0E65-20D5-40B4-9A3F-E9187835309F}.Default|x86.ActiveCfg = Debug|Any CPU
+		{DA2D0E65-20D5-40B4-9A3F-E9187835309F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA2D0E65-20D5-40B4-9A3F-E9187835309F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA2D0E65-20D5-40B4-9A3F-E9187835309F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DA2D0E65-20D5-40B4-9A3F-E9187835309F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DA2D0E65-20D5-40B4-9A3F-E9187835309F}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

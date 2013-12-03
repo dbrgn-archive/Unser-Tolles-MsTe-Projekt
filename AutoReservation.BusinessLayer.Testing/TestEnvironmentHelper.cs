@@ -2,7 +2,7 @@
 using System.Data.SqlClient;
 using AutoReservation.Dal;
 
-namespace AutoReservation.Testing
+namespace AutoReservation.BusinessLayer.Testing
 {
     public static class TestEnvironmentHelper
     {

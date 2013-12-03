@@ -3,7 +3,7 @@ using AutoReservation.BusinessLayer;
 using AutoReservation.Dal;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AutoReservation.Testing
+namespace AutoReservation.BusinessLayer.Testing
 {
     [TestClass]
     public class BusinessLayerTest
@@ -31,6 +31,12 @@ namespace AutoReservation.Testing
         [TestMethod]
         public void UpdateAutoTest()
         {
+            var bc = new AutoReservationBusinessComponent();
+            var autos = bc.GetAutos();
+            foreach (var auto in autos)
+            {
+                Console.WriteLine(auto.Marke);
+            }
             Assert.Inconclusive("Test wurde noch nicht implementiert!");
         }
 

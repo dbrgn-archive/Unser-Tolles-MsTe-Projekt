@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{85305EF6-3B4F-4B7C-B39D-780FA9950156}</ProjectGuid>
+    <ProjectGuid>{DA2D0E65-20D5-40B4-9A3F-E9187835309F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AutoReservation.Testing</RootNamespace>
-    <AssemblyName>AutoReservation.Testing</AssemblyName>
+    <RootNamespace>AutoReservation.BusinessLayer.Testing</RootNamespace>
+    <AssemblyName>AutoReservation.BusinessLayer.Testing</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -67,18 +67,14 @@
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\AutoReservation.BusinessLayer.Testing\BusinessLayerTest.cs">
-      <Link>BusinessLayerTest.cs</Link>
-    </Compile>
-    <Compile Include="ServiceTestLocal.cs" />
+    <Compile Include="BusinessLayerTest.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="ServiceTestRemote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceTestBase.cs" />
+    <Compile Include="TestEnvironmentHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\App.config">
@@ -102,14 +98,6 @@
     <ProjectReference Include="..\AutoReservation.Dal\AutoReservation.Dal.csproj">
       <Project>{AB98AC63-032F-4050-9755-1E2235E9F1DD}</Project>
       <Name>AutoReservation.Dal</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AutoReservation.Service.Wcf.Host\AutoReservation.Service.Wcf.Host.csproj">
-      <Project>{4e17d89d-f65a-4f89-bcee-28171fa1a01c}</Project>
-      <Name>AutoReservation.Service.Wcf.Host</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AutoReservation.Service.Wcf\AutoReservation.Service.Wcf.csproj">
-      <Project>{73f6e950-15a9-460d-993b-dfe469a9e286}</Project>
-      <Name>AutoReservation.Service.Wcf</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
