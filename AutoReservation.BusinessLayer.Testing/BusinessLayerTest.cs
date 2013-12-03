@@ -29,6 +29,13 @@ namespace AutoReservation.BusinessLayer.Testing
         }
 
         [TestMethod]
+        public void AlwaysPass() 
+        {
+            Console.WriteLine("Always Pass");
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod]
         public void UpdateAutoTest()
         {
             var bc = new AutoReservationBusinessComponent();
@@ -37,7 +44,7 @@ namespace AutoReservation.BusinessLayer.Testing
             {
                 Console.WriteLine(auto.Marke);
             }
-            Assert.Inconclusive("Test wurde noch nicht implementiert!");
+             Assert.Inconclusive("Test wurde noch nicht implementiert!");
         }
 
         [TestMethod]

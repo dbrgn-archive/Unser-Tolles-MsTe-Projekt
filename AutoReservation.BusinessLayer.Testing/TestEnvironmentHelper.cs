@@ -8,6 +8,8 @@ namespace AutoReservation.BusinessLayer.Testing
     {
         public static void InitializeTestData()
         {
+			var type = typeof(System.Data.Entity.SqlServer.SqlProviderServices);
+
             using (AutoReservationEntities context = new AutoReservationEntities())
             {
                 var connection = (SqlConnection)context.Database.Connection;
