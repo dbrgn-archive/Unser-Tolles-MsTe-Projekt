@@ -9,23 +9,23 @@ namespace AutoReservation.Service.Wcf
 {
     interface IAutoReservationService
     {
-        public List<AutoDto> GetAutos();
-        public void AddAuto(AutoDto auto);
-        public void DeleteAuto(AutoDto auto);
-        public void UpdateAuto(AutoDto modified, AutoDto original);
-        public AutoDto GetAutoById(int id);
+        List<AutoDto> GetAutos();
+        void AddAuto(AutoDto auto);
+        void DeleteAuto(AutoDto auto);
+        void UpdateAuto(AutoDto modified, AutoDto original);
+        AutoDto GetAutoById(int id);
 
-        public List<KundeDto> GetKunden();
-        public void AddKunde(KundeDto kunde);
-        public void DeleteKunde(KundeDto kunde);
-        public void UpdateKunde(KundeDto modified, KundeDto original);
-        public KundeDto GetKundeById(int id);
+        List<KundeDto> GetKunden();
+        void AddKunde(KundeDto kunde);
+        void DeleteKunde(KundeDto kunde);
+        void UpdateKunde(KundeDto modified, KundeDto original);
+        KundeDto GetKundeById(int id);
 
-        public List<ReservationDto> GetReservationen();
-        public void AddReservation(ReservationDto reservation);
-        public void DeleteReservation(ReservationDto reservation);
-        public void UpdateReservation(ReservationDto modified, ReservationDto original);
-        public ReservationDto GetRservationByNr(int resNr);
+        List<ReservationDto> GetReservationen();
+        void AddReservation(ReservationDto reservation);
+        void DeleteReservation(ReservationDto reservation);
+        void UpdateReservation(ReservationDto modified, ReservationDto original);
+        ReservationDto GetRservationByNr(int resNr);
 
     }
 }
