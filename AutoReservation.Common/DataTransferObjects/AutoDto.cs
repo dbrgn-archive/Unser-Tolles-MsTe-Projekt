@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace AutoReservation.Common.DataTransferObjects
@@ -9,7 +10,7 @@ namespace AutoReservation.Common.DataTransferObjects
         private int id;
         private string marke;
         private int tagestarif;
-        private int basistarif;
+        private Nullable<int> basistarif;
         private AutoKlasse autoKlasse;
 
         public int Id {
@@ -45,7 +46,7 @@ namespace AutoReservation.Common.DataTransferObjects
                 }
             }
         }
-        public int Basistarif
+        public Nullable<int> Basistarif
         {
             get { return basistarif; }
             set
