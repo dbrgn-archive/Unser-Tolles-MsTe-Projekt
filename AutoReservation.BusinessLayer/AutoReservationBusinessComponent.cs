@@ -15,6 +15,15 @@ namespace AutoReservation.BusinessLayer
                 return context.Autos.ToList();
             }
         }
+
+        public Auto GetAutoById(int id)
+        {
+            using (var context = new AutoReservationEntities()) 
+            {
+                return context.Autos.SingleOrDefault(a => a.Id == id);
+            }
+        }
+
         public void AddAuto(Auto auto)
         {
             using (AutoReservationEntities context = new AutoReservationEntities())
@@ -28,6 +37,7 @@ namespace AutoReservation.BusinessLayer
         {
             using (var context = new AutoReservationEntities())
             {
+                context.Autos.Attach(auto);
                 context.Autos.Remove(auto);
             }
         }
@@ -61,6 +71,7 @@ namespace AutoReservation.BusinessLayer
         {
             using (var context = new AutoReservationEntities())
             {
+                context.Kunden.Add(kunde);
                 context.Kunden.Remove(kunde);
             }
         }
@@ -90,6 +101,14 @@ namespace AutoReservation.BusinessLayer
             }
         }
 
+        public Kunde GetKundeById(int id)
+        {
+            using (var context = new AutoReservationEntities()) 
+            {
+                return context.Kunden.SingleOrDefault(k => k.Id == id);
+            }
+        }
+
         public void AddReservation(Reservation reservation)
         {
             using (var context = new AutoReservationEntities())
@@ -102,7 +121,16 @@ namespace AutoReservation.BusinessLayer
         {
             using (var context = new AutoReservationEntities())
             {
+                context.Reservationen.Add(reservation);
                 context.Reservationen.Remove(reservation);
+            }
+        }
+
+        public Reservation GetReservationByNr(int resNr)
+        {
+            using (var context = new AutoReservationEntities())
+            {
+                return context.Reservationen.Include(r => r.Auto).Include(r => r.Kunde).SingleOrDefault(r => r.ReservationNr == resNr);
             }
         }
 
