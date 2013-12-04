@@ -4,6 +4,7 @@ using System.ServiceModel;
 using AutoReservation.Common.DataTransferObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AutoReservation.Common.Interfaces;
+using AutoReservation.BusinessLayer.Testing;
 
 namespace AutoReservation.Testing
 {
@@ -21,7 +22,9 @@ namespace AutoReservation.Testing
         [TestMethod]
         public void AutosTest()
         {
-            Assert.Inconclusive("Test wurde noch nicht implementiert!");
+            List<AutoDto> autos = Target.GetAutos();
+            Assert.IsTrue(autos.Count == 3);
+
         }
 
         [TestMethod]
