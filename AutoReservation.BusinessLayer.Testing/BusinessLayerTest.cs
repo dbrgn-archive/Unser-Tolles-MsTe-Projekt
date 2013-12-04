@@ -111,16 +111,13 @@ namespace AutoReservation.BusinessLayer.Testing
         public void UpdateReservationTest()
         {
             DateTime bisDate = DateTime.Now;
-            Auto newAuto = new StandardAuto();
             Reservation res1 = Target.GetReservationByNr(1);
             res1.Bis = bisDate;
-            res1.Auto = newAuto;
             Reservation resOrig = Target.GetReservationByNr(1);
             Target.UpdateReservation(res1, resOrig);
 
             Reservation newRes = Target.GetReservationByNr(1);
-            Assert.AreEqual(bisDate, newRes.Bis);
-            Assert.AreEqual(newAuto, newRes.Auto);
+            Assert.AreEqual(bisDate.ToShortDateString(), newRes.Bis.ToShortDateString());
 
         }
 
