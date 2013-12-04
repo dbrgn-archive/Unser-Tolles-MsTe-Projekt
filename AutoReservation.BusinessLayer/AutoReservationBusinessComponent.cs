@@ -109,6 +109,14 @@ namespace AutoReservation.BusinessLayer
             }
         }
 
+        public List<Reservation> GetReservationen()
+        {
+            using (var context = new AutoReservationEntities())
+            {
+                return context.Reservationen.ToList();
+            }
+        }
+
         public void AddReservation(Reservation reservation)
         {
             using (var context = new AutoReservationEntities())
