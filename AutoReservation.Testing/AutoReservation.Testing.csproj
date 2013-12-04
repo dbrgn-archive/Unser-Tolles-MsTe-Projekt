@@ -70,6 +70,9 @@
     <Compile Include="..\AutoReservation.BusinessLayer.Testing\BusinessLayerTest.cs">
       <Link>BusinessLayerTest.cs</Link>
     </Compile>
+    <Compile Include="..\AutoReservation.BusinessLayer.Testing\TestEnvironmentHelper.cs">
+      <Link>TestEnvironmentHelper.cs</Link>
+    </Compile>
     <Compile Include="ServiceTestLocal.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -102,6 +105,14 @@
     <ProjectReference Include="..\AutoReservation.Dal\AutoReservation.Dal.csproj">
       <Project>{AB98AC63-032F-4050-9755-1E2235E9F1DD}</Project>
       <Name>AutoReservation.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoReservation.Service.Wcf.Host\AutoReservation.Service.Wcf.Host.csproj">
+      <Project>{4e17d89d-f65a-4f89-bcee-28171fa1a01c}</Project>
+      <Name>AutoReservation.Service.Wcf.Host</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoReservation.Service.Wcf\AutoReservation.Service.Wcf.csproj">
+      <Project>{73f6e950-15a9-460d-993b-dfe469a9e286}</Project>
+      <Name>AutoReservation.Service.Wcf</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
