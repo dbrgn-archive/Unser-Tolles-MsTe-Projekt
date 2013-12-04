@@ -7,9 +7,13 @@ namespace AutoReservation.Common.DataTransferObjects
     [DataContract]
     public class KundeDto : DtoBase
     {
+        [DataMember]
         private string nachname;
+        [DataMember]
         private string vorname;
+        [DataMember]
         private int id;
+        [DataMember]
         private DateTime geburtsdatum;
 
         public string Nachname
