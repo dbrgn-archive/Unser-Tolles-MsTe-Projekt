@@ -33,7 +33,7 @@ namespace AutoReservation.BusinessLayer
 
         }
 
-        public void DeleteAuto(Auto auto)
+        public void RemoveAuto(Auto auto)
         {
             using (var context = new AutoReservationEntities())
             {
