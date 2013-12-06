@@ -36,6 +36,31 @@ namespace AutoReservation.BusinessLayer.Testing
             System.Diagnostics.Debug.WriteLine("Always Pass");
             Assert.IsTrue(true);
         }
+        [TestMethod]
+        public void AddAutoTest()
+        {
+            const string marke = "Volvo";
+            const int tarif = 100;
+            const int id = 4;
+            StandardAuto auto = new StandardAuto();
+            auto.Marke = marke;
+            auto.Id = id;
+            auto.Tagestarif = tarif;
+            auto.Reservation = new List<Reservation>();
+            Target.AddAuto(auto);
+
+            Auto autoRet = Target.GetAutoById(id);
+            Assert.AreEqual(marke, autoRet.Marke);
+            Assert.AreEqual(tarif, autoRet.Tagestarif);
+
+        }
+        [TestMethod]
+        public void RemoveAutoTest()
+        {
+            Auto auto1 = Target.GetAutoById(1);
+            Target.RemoveAuto(auto1);
+            Assert.AreEqual(2, Target.GetAutos().Count);
+        }
 
         [TestMethod]
         public void UpdateAutoTest()

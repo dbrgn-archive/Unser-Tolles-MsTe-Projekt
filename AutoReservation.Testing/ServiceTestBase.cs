@@ -61,19 +61,36 @@ namespace AutoReservation.Testing
 		[TestMethod]
 		public void GetReservationByNrTest()
 		{
-			Assert.Inconclusive("Test wurde noch nicht implementiert!");
+			ReservationDto res1 = Target.GetReservationByNr(1);
+			AutoDto auto1 = res1.Auto;
+			Assert.AreEqual("Fiat Punto", auto1.Marke);
+
 		}
 
 		[TestMethod]
 		public void GetReservationByIllegalNr()
 		{
-			Assert.Inconclusive("Test wurde noch nicht implementiert!");
+			ReservationDto res999 = Target.GetReservationByNr(999);
+			Assert.IsNull(res999);
 		}
 
 		[TestMethod]
 		public void InsertAutoTest()
 		{
-			Assert.Inconclusive("Test wurde noch nicht implementiert!");
+			const int id = 4;
+			const string marke = "Volvo";
+			const int tarif = 100;
+			AutoDto newAuto = new AutoDto();
+			newAuto.Id = id;
+			newAuto.Marke = marke;
+			newAuto.Tagestarif = tarif;
+			newAuto.AutoKlasse = AutoKlasse.Mittelklasse;
+			Target.AddAuto(newAuto);
+
+			AutoDto newAutoRet = Target.GetAutoById(id);
+			Assert.AreEqual(marke, newAutoRet.Marke);
+			Assert.AreEqual(tarif, newAutoRet.Tagestarif);
+			Assert.AreEqual(AutoKlasse.Mittelklasse, newAutoRet.AutoKlasse);
 		}
 
 		[TestMethod]
