@@ -1,9 +1,11 @@
 ﻿using AutoReservation.BusinessLayer;
 using AutoReservation.Common.DataTransferObjects;
 using AutoReservation.Common.Interfaces;
+using AutoReservation.Dal;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.ServiceModel;
 
 namespace AutoReservation.Service.Wcf
 {
@@ -46,7 +48,16 @@ namespace AutoReservation.Service.Wcf
 		public void UpdateAuto(AutoDto modified, AutoDto original)
 		{
 			AutoReservationService.WriteActualMethod();
-			this.getBusinessComponent().UpdateAuto(modified.ConvertToEntity(), original.ConvertToEntity());
+			try
+			{
+				this.getBusinessComponent().UpdateAuto(modified.ConvertToEntity(), original.ConvertToEntity());
+			}
+			catch (LocalOptimisticConcurrencyException<Auto> e)
+			{
+				FaultException faultException = new FaultException<AutoDto>( e.MergedEntity.ConvertToDto(), e.Message);
+				throw faultException;
+			}
+			
 		}
 
 		public AutoDto GetAutoById(int id)
@@ -76,7 +87,15 @@ namespace AutoReservation.Service.Wcf
 		public void UpdateKunde(KundeDto modified, KundeDto original)
 		{
 			AutoReservationService.WriteActualMethod();
-			this.getBusinessComponent().UpdateKunde(modified.ConvertToEntity(), original.ConvertToEntity());
+			try
+			{
+				this.getBusinessComponent().UpdateKunde(modified.ConvertToEntity(), original.ConvertToEntity());
+			}
+			catch (LocalOptimisticConcurrencyException<Kunde> e)
+			{
+				FaultException faultException = new FaultException<KundeDto>(e.MergedEntity.ConvertToDto(), e.Message);
+				throw faultException;
+			}
 		}
 
 		public KundeDto GetKundeById(int id)
@@ -106,7 +125,14 @@ namespace AutoReservation.Service.Wcf
 		public void UpdateReservation(ReservationDto modified, ReservationDto original)
 		{
 			AutoReservationService.WriteActualMethod();
-			this.getBusinessComponent().UpdateReservation(modified.ConvertToEntity(), original.ConvertToEntity());
+			try {
+				this.getBusinessComponent().UpdateReservation(modified.ConvertToEntity(), original.ConvertToEntity());
+			}
+			catch (LocalOptimisticConcurrencyException<Reservation> e)
+			{
+				FaultException faultException = new FaultException<ReservationDto>(e.MergedEntity.ConvertToDto(), e.Message);
+				throw faultException;
+			}
 		}
 
 		public ReservationDto GetReservationByNr(int resNr)

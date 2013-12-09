@@ -66,7 +66,6 @@ namespace AutoReservation.Testing
 			ReservationDto res1 = Target.GetReservationByNr(1);
 			AutoDto auto1 = res1.Auto;
 			Assert.AreEqual("Fiat Punto", auto1.Marke);
-
 		}
 
 		[TestMethod]
@@ -115,8 +114,8 @@ namespace AutoReservation.Testing
 		[TestMethod]
 		public void InsertReservationTest()
 		{
-			DateTime von = DateTime.Now;
-			DateTime bis = DateTime.Now;
+			DateTime von = DateTime.Today;
+			DateTime bis = DateTime.Today;
 			ReservationDto newRes = new ReservationDto();
 			AutoDto fiat = Target.GetAutoById(1);
 			KundeDto chrigi = Target.GetKundeById(1);
@@ -129,8 +128,8 @@ namespace AutoReservation.Testing
 			ReservationDto newResRet = Target.GetReservationByNr(4);
 			Assert.AreEqual(fiat.Marke, newResRet.Auto.Marke);
 			Assert.AreEqual(chrigi.Vorname, newResRet.Kunde.Vorname);
-			Assert.AreEqual(von.ToShortDateString(), newResRet.Von.ToShortDateString());
-			Assert.AreEqual(bis.ToShortDateString(), newResRet.Bis.ToShortDateString());
+			Assert.AreEqual(von, newResRet.Von);
+			Assert.AreEqual(bis, newResRet.Bis);
 
 		}
 
@@ -175,6 +174,7 @@ namespace AutoReservation.Testing
 		}
 
 		[TestMethod]
+		[ExpectedException(typeof(FaultException<AutoDto>))]
 		public void UpdateAutoTestWithOptimisticConcurrency()
 		{
 			const string marke = "Volvo";
@@ -190,17 +190,19 @@ namespace AutoReservation.Testing
 			{
 				Target.UpdateAuto(newAuto1, origAuto);
 			}
-			catch (LocalOptimisticConcurrencyException<Auto>)
+			catch (FaultException<AutoDto>)
 			{
-				
+				throw;
 			}
 			catch
 			{
-				Assert.Fail("Wrong Concurrency Exception, Auto");
+				Assert.Fail("Wrong Exception");
 			}
+			
 		}
 
 		[TestMethod]
+		[ExpectedException(typeof(FaultException<KundeDto>))]
 		public void UpdateKundeTestWithOptimisticConcurrency()
 		{
 			const string vorname = "Elchbert";
@@ -216,9 +218,9 @@ namespace AutoReservation.Testing
 			{
 				Target.UpdateKunde(newKunde1, origKunde);
 			}
-			catch (LocalOptimisticConcurrencyException<Kunde>)
+			catch (FaultException<KundeDto>)
 			{
-			
+				throw;
 			} 
 			catch
 			{
@@ -228,9 +230,30 @@ namespace AutoReservation.Testing
 		}
 
 		[TestMethod]
+		[ExpectedException(typeof(FaultException<ReservationDto>))]
 		public void UpdateReservationTestWithOptimisticConcurrency()
 		{
-			Assert.Inconclusive("Test wurde noch nicht implementiert!");
+			ReservationDto origRes = Target.GetReservationByNr(1);
+			ReservationDto newRes1 = Target.GetReservationByNr(1);
+			AutoDto auto2 = Target.GetAutoById(2);
+			newRes1.Auto = auto2;
+			ReservationDto newRes2 = Target.GetReservationByNr(1);
+			newRes2.Bis = DateTime.Today;
+			Target.UpdateReservation(newRes2, origRes);
+
+			try
+			{
+				Target.UpdateReservation(newRes1, origRes);
+			}
+			catch (FaultException<ReservationDto>)
+			{
+				throw;
+			}
+			catch
+			{
+				Assert.Fail("Wrong Exception");
+			}
+			
 		}
 
 		[TestMethod]
