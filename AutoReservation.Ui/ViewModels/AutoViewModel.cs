@@ -61,7 +61,7 @@ namespace AutoReservation.Ui.ViewModels
         {
             Autos.Clear();
             autosOriginal.Clear();
-            foreach (AutoDto auto in Service.Autos)
+            foreach (AutoDto auto in Service.GetAutos())
             {
                 Autos.Add(auto);
                 autosOriginal.Add((AutoDto)auto.Clone());
@@ -101,7 +101,7 @@ namespace AutoReservation.Ui.ViewModels
             {
                 if (auto.Id == default(int))
                 {
-                    Service.InsertAuto(auto);
+                    Service.AddAuto(auto);
                 }
                 else
                 {
@@ -188,7 +188,7 @@ namespace AutoReservation.Ui.ViewModels
 
         private void Delete()
         {
-            Service.DeleteAuto(SelectedAuto);
+            Service.RemoveAuto(SelectedAuto);
             Load();
         }
 

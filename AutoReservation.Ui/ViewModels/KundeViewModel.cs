@@ -63,7 +63,7 @@ namespace AutoReservation.Ui.ViewModels
         {
             Kunden.Clear();
             kundenOriginal.Clear();
-            foreach (KundeDto kunde in Service.Kunden)
+            foreach (KundeDto kunde in Service.GetKunden())
             {
                 Kunden.Add(kunde);
                 kundenOriginal.Add((KundeDto)kunde.Clone());
@@ -103,7 +103,7 @@ namespace AutoReservation.Ui.ViewModels
             {
                 if (kunde.Id == default(int))
                 {
-                    Service.InsertKunde(kunde);
+                    Service.AddKunde(kunde);
                 }
                 else
                 {
@@ -191,7 +191,7 @@ namespace AutoReservation.Ui.ViewModels
 
         private void Delete()
         {
-            Service.DeleteKunde(SelectedKunde);
+            Service.RemoveKunde(SelectedKunde);
             Load();
         }
 

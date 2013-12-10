@@ -2,6 +2,7 @@
 using AutoReservation.Testing;
 using AutoReservation.Ui.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using AutoReservation.BusinessLayer.Testing;
 
 namespace AutoReservation.Ui.Testing
 {
