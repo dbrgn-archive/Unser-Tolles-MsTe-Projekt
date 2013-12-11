@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutoReservation.Ui.Factory
 {
-	class RemoteAccessDataCreator : Creator
+	class RemoteDataAccessCreator : Creator
 	{
 	}
 }

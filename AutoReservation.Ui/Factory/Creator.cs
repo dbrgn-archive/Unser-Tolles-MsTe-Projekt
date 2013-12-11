@@ -4,16 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoReservation.Common.Interfaces;
+using AutoReservation.Service.Wcf;
+using AutoReservation.Ui.Properties;
 
 namespace AutoReservation.Ui.Factory
 {
-	abstract class Creator
-	{
-		public static Creator GetCreator()
-		{
-			return new LocalAccessDataCreator();
-		}
+    abstract class Creator
+    {
+        public static Creator GetCreator()
+        {
+            Type serviceLayerType = Type.GetType(Settings.Default.ServiceLayerType);
+            if (serviceLayerType == null) { return new LocalDataAccessCreator(); }
+            return (Creator)Activator.CreateInstance(serviceLayerType);
+        }
 
-		public IAutoReservationService CreateInstance();
-	}
+        public IAutoReservationService CreateInstance()
+        {
+            return new AutoReservationService();
+        }
+    }
 }
