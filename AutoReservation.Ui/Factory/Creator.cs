@@ -18,9 +18,6 @@ namespace AutoReservation.Ui.Factory
             return (Creator)Activator.CreateInstance(serviceLayerType);
         }
 
-        public IAutoReservationService CreateInstance()
-        {
-            return new AutoReservationService();
-        }
+        public abstract IAutoReservationService CreateInstance();
     }
 }
