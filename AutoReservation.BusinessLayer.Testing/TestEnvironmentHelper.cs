@@ -44,7 +44,7 @@ namespace AutoReservation.BusinessLayer.Testing
                 "   SELECT 1, 'Faessler', 'Chrigi', '1961-05-05 00:00:00' UNION" + Environment.NewLine +
                 "   SELECT 2, 'Bargen', 'Danilo', '1980-09-09 00:00:00' UNION" + Environment.NewLine +
                 "   SELECT 3, 'Furrer', 'Jonas', '1950-07-03 00:00:00' UNION" + Environment.NewLine +
-                "   SELECT 4, 'Joller', 'Schoseff', '1944-11-11 00:00:00'";
+                "   SELECT 4, 'Stein', 'Gertrude', '1944-11-11 00:00:00'";
 
             command.ExecuteNonQuery();
         }
