@@ -91,7 +91,7 @@
             <Label Grid.Row="1">Typ</Label>
             <Label Grid.Row="2">Marke</Label>
             <Label Grid.Row="3">Tagestarif</Label>
-            <Label Grid.Row="4">Basistarif</Label>
+			<Label Grid.Row="4" Visibility="{Binding SelectedAuto.AutoKlasse, Converter={StaticResource BasistarifVisibilityConverter}, Mode=TwoWay}">Basistarif</Label>
 
             <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" 
                    FontSize="16" FontWeight="UltraBold" FontStyle="Italic">

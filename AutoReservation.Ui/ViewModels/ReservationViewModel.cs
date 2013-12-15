@@ -9,6 +9,33 @@ namespace AutoReservation.Ui.ViewModels
 {
     public class ReservationViewModel : ViewModelBase
     {
+        private List<AutoDto> autos;
+        public List<AutoDto> Autos
+        {
+            get
+            {
+                if (autos == null)
+                {
+                    autos = new List<AutoDto>();
+                }
+                return autos;
+            }
+        }
+
+        private List<KundeDto> kunden;
+        public List<KundeDto> Kunden
+        {
+            get
+            {
+                if (kunden == null)
+                {
+                    kunden = new List<KundeDto>();
+                }
+                return kunden;
+            }
+        }
+        
+
         private readonly List<ReservationDto> reservationenOriginal = new List<ReservationDto>();
         private ObservableCollection<ReservationDto> reservationen;
         public ObservableCollection<ReservationDto> Reservationen
@@ -67,6 +94,10 @@ namespace AutoReservation.Ui.ViewModels
                 reservationenOriginal.Add((ReservationDto)reservation.Clone());
             }
             SelectedReservation = Reservationen.FirstOrDefault();
+            Autos.Clear();
+            Autos.AddRange(Service.GetAutos());
+            Kunden.Clear();
+            Kunden.AddRange(Service.GetKunden());
         }
 
         private bool CanLoad()
