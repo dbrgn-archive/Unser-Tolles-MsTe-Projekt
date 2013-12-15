@@ -3,6 +3,7 @@ using AutoReservation.Testing;
 using AutoReservation.Ui.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AutoReservation.BusinessLayer.Testing;
+using System;
 
 namespace AutoReservation.Ui.Testing
 {
@@ -18,19 +19,31 @@ namespace AutoReservation.Ui.Testing
         [TestMethod]
         public void AutosLoadTest()
         {
-            Assert.Inconclusive("Test wurde noch nicht implementiert!");
+            AutoViewModel avm = new AutoViewModel();
+            var relayCmd = avm.LoadCommand;
+            var autos = avm.Autos;
+            Assert.IsTrue(relayCmd.CanExecute(null));
+            Assert.IsTrue(autos.Count == 3);
         }
 
         [TestMethod]
         public void KundenLoadTest()
         {
-            Assert.Inconclusive("Test wurde noch nicht implementiert!");
+            KundeViewModel kvm = new KundeViewModel();
+            var relayCmd = kvm.LoadCommand;
+            var kunden = kvm.Kunden;
+            Assert.IsTrue(relayCmd.CanExecute(null));
+            Assert.IsTrue(kunden.Count == 4);
         }
 
         [TestMethod]
         public void ReservationenLoadTest()
         {
-            Assert.Inconclusive("Test wurde noch nicht implementiert!");
+            ReservationViewModel rvm = new ReservationViewModel();
+            var relayCmd = rvm.LoadCommand;
+            var reservationen = rvm.Reservationen;
+            Assert.IsTrue(relayCmd.CanExecute(null));
+            Assert.IsTrue(reservationen.Count == 3);
         }
     }
 }
