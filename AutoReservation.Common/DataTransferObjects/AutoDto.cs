@@ -116,5 +116,13 @@ namespace AutoReservation.Common.DataTransferObjects
                 AutoKlasse);
         }
 
+		public override bool Equals(object obj)
+		{
+			if (obj.GetType() == this.GetType())
+			{
+				return this.Id == ((AutoDto)obj).Id;
+			}
+			return false;
+		}
     }
 }
