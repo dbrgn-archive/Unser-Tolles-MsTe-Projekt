@@ -64,9 +64,9 @@ namespace AutoReservation.BusinessLayer.Testing
         {
             command.CommandText =
                 "INSERT INTO Reservation (Id, AutoId, KundeId, Von, Bis)" + Environment.NewLine +
-                "   SELECT 1, 1, 1, '2020-01-10 00:00:00', '2020-01-20 00:00:00' UNION" + Environment.NewLine +
-                "   SELECT 2, 2, 2, '2020-01-10 00:00:00', '2020-01-20 00:00:00' UNION" + Environment.NewLine +
-                "   SELECT 3, 3, 3, '2020-01-10 00:00:00', '2020-01-20 00:00:00'";
+                "   SELECT 1, 1, 1, '2013-06-03 00:00:00', '2014-01-15 00:00:00' UNION" + Environment.NewLine +
+                "   SELECT 2, 2, 2, '2013-05-06 00:00:00', '2013-09-15 00:00:00' UNION" + Environment.NewLine +
+                "   SELECT 3, 3, 3, '2013-04-10 00:00:00', '2013-11-06 00:00:00'";
 
             command.ExecuteNonQuery();
         }
