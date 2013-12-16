@@ -144,7 +144,10 @@ namespace AutoReservation.BusinessLayer
         {
             using (var context = new AutoReservationEntities())
             {
-                return context.Reservationen.Include(r => r.Auto).Include(r => r.Kunde).SingleOrDefault(r => r.ReservationNr == resNr);
+                return context.Reservationen
+					.Include(r => r.Auto)
+					.Include(r => r.Kunde)
+					.SingleOrDefault(r => r.ReservationNr == resNr);
             }
         }
 
