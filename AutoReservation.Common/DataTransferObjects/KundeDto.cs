@@ -116,5 +116,10 @@ namespace AutoReservation.Common.DataTransferObjects
             return false;
             
         }
+
+		public override int GetHashCode()
+		{
+			return base.GetHashCode();
+		}
     }
 }

@@ -49,11 +49,11 @@
                       ItemsSource="{Binding Reservationen}" 
                       SelectedItem="{Binding SelectedReservation, Mode=TwoWay}">
                 <DataGrid.Columns>
-					<DataGridTextColumn Header="Auto" Binding="{Binding Auto.Marke}" />
-					<DataGridTextColumn Header="Klasse" Binding="{Binding Auto.AutoKlasse}" />
-					<DataGridTextColumn Header="Von" Binding="{Binding Von, StringFormat=\{0:dd/MM/yyyy\}, Mode=TwoWay}"  />
-					<DataGridTextColumn Header="Bis" Binding="{Binding Bis, StringFormat=\{0:dd/MM/yyyy\}, Mode=TwoWay}" />
-					<DataGridTextColumn Header="Vorname" Binding="{Binding Kunde.Vorname}" />
+                    <DataGridTextColumn Header="Auto" Binding="{Binding Auto.Marke}" />
+                    <DataGridTextColumn Header="Klasse" Binding="{Binding Auto.AutoKlasse}" />
+                    <DataGridTextColumn Header="Von" Binding="{Binding Von, StringFormat=\{0:dd/MM/yyyy\}, Mode=TwoWay}"  />
+                    <DataGridTextColumn Header="Bis" Binding="{Binding Bis, StringFormat=\{0:dd/MM/yyyy\}, Mode=TwoWay}" />
+                    <DataGridTextColumn Header="Vorname" Binding="{Binding Kunde.Vorname}" />
                     <DataGridTextColumn Header="Nachname" Binding="{Binding Kunde.Nachname}" />
                 </DataGrid.Columns>
             </DataGrid>
@@ -90,8 +90,8 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-			<Label Grid.Row="1">Auto</Label>
-			<Label Grid.Row="2">Kunde</Label>
+            <Label Grid.Row="1">Auto</Label>
+            <Label Grid.Row="2">Kunde</Label>
             <Label Grid.Row="3">Von</Label>
             <Label Grid.Row="4">Bis</Label>
 
@@ -100,30 +100,30 @@
                    FontSize="16" FontWeight="UltraBold" FontStyle="Italic">
                 Reservation Editieren
             </Label>
-			<ComboBox Grid.Column="1" Grid.Row="1" 
+            <ComboBox Grid.Column="1" Grid.Row="1" 
                       ItemsSource="{Binding Autos}"
-					  DisplayMemberPath="Marke"
-					  SelectedItem="{Binding SelectedReservation.Auto}"
-					  />
-			<ComboBox Grid.Column="1" Grid.Row="2" 
+                      DisplayMemberPath="Marke"
+                      SelectedItem="{Binding SelectedReservation.Auto}"
+                      />
+            <ComboBox Grid.Column="1" Grid.Row="2" 
                       ItemsSource="{Binding Kunden}"
-					  SelectedItem="{Binding SelectedReservation.Kunde}"
-					  >
-				<ComboBox.ItemTemplate>
-					<DataTemplate>
-						<TextBlock>
-							<TextBlock.Text>
-								<MultiBinding StringFormat="{}{0} {1}">
-									<Binding Path="Vorname"/>
-									<Binding Path="Nachname"/>
-								</MultiBinding>
-							</TextBlock.Text>
-						</TextBlock>
-					</DataTemplate>
-				</ComboBox.ItemTemplate>
-			</ComboBox>
-			<DatePicker Grid.Column="1" Grid.Row="3" SelectedDate="{Binding SelectedReservation.Von}" SelectedDateFormat="Short" />
-			<DatePicker Grid.Column="1" Grid.Row="4" SelectedDate="{Binding SelectedReservation.Bis}" SelectedDateFormat="Short" />
+                      SelectedItem="{Binding SelectedReservation.Kunde}"
+                      >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} {1}">
+                                    <Binding Path="Vorname"/>
+                                    <Binding Path="Nachname"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <DatePicker Grid.Column="1" Grid.Row="3" SelectedDate="{Binding SelectedReservation.Von}" SelectedDateFormat="Short" DisplayDateEnd="12/31/2020" DisplayDateStart="1/1/1900" />
+            <DatePicker Grid.Column="1" Grid.Row="4" SelectedDate="{Binding SelectedReservation.Bis}" SelectedDateFormat="Short" DisplayDateEnd="12/31/2020" DisplayDateStart="1/1/1900" />
         </Grid>
     </Grid>
 </UserControl>

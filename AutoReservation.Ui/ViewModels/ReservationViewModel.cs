@@ -4,32 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using AutoReservation.Common.DataTransferObjects;
+using System;
 
 namespace AutoReservation.Ui.ViewModels
 {
     public class ReservationViewModel : ViewModelBase
     {
-        private List<AutoDto> autos;
-        public List<AutoDto> Autos
+        private ObservableCollection<AutoDto> autos;
+        public ObservableCollection<AutoDto> Autos
         {
             get
             {
                 if (autos == null)
                 {
-                    autos = new List<AutoDto>();
+                    autos = new ObservableCollection<AutoDto>();
                 }
                 return autos;
             }
         }
 
-        private List<KundeDto> kunden;
-        public List<KundeDto> Kunden
+        private ObservableCollection<KundeDto> kunden;
+        public ObservableCollection<KundeDto> Kunden
         {
             get
             {
                 if (kunden == null)
                 {
-                    kunden = new List<KundeDto>();
+                    kunden = new ObservableCollection<KundeDto>();
                 }
                 return kunden;
             }
@@ -93,11 +94,20 @@ namespace AutoReservation.Ui.ViewModels
                 Reservationen.Add(reservation);
                 reservationenOriginal.Add((ReservationDto)reservation.Clone());
             }
-            SelectedReservation = Reservationen.FirstOrDefault();
+            
             Autos.Clear();
-            Autos.AddRange(Service.GetAutos());
+            foreach (AutoDto auto in Service.GetAutos())
+            {
+                Autos.Add(auto);
+
+            }
+
             Kunden.Clear();
-            Kunden.AddRange(Service.GetKunden());
+            foreach (KundeDto kunde in Service.GetKunden())
+            {
+                Kunden.Add(kunde);
+            }
+            SelectedReservation = Reservationen.FirstOrDefault();
         }
 
         private bool CanLoad()
@@ -188,7 +198,10 @@ namespace AutoReservation.Ui.ViewModels
 
         private void New()
         {
-            Reservationen.Add(new ReservationDto());
+            ReservationDto res =new  ReservationDto();
+            res.Von = DateTime.Today;
+            res.Bis = DateTime.Today;
+            Reservationen.Add(res);
         }
 
         private bool CanNew()
