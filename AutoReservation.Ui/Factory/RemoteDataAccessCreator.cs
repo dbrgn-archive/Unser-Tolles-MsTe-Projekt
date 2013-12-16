@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using AutoReservation.Common.Interfaces;
@@ -12,7 +13,9 @@ namespace AutoReservation.Ui.Factory
 	{
         public override IAutoReservationService CreateInstance()
         {
-            return new AutoReservationService();
+            ChannelFactory<IAutoReservationService> channelFactory = new ChannelFactory<IAutoReservationService>("AutoReservationService");
+
+            return channelFactory.CreateChannel();
         }
 
 	}
